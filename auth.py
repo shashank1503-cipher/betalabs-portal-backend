@@ -4,11 +4,14 @@ import firebase_admin
 from firebase_admin import auth, credentials
 import json
 from db import db, read_one, create
-
+import pymongo
 router = APIRouter()
 credentials_json = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 cred = credentials.Certificate(credentials_json)
 firebase_admin.initialize_app(cred)
+MONGO_URI = os.environ.get('MONGO_URI')
+client = pymongo.MongoClient(MONGO_URI)
+db = client["BetaLabs-Portal"]
 
 async def verify(authorization):
    
@@ -34,7 +37,6 @@ async def addUser(req: Request):
     data = await req.body()
     data = json.loads(data)
     data = data['user']
-
     new_data = checkIfUserExists(data['g_id'])
     # print("Data 2: ", data)
     if not new_data:
@@ -58,7 +60,14 @@ def checkIfUserExists(id):
 
     
 def addUser(data):
-   
+    fetch_user_with_max_rank = db['users'].find({}).sort('rank',-1).limit(1)
+    for user in fetch_user_with_max_rank:
+        fetch_rank = user.get("rank",0)
+        fetch_score = user.get("score",0)
+    if fetch_score == 0:
+        data['rank'] = fetch_rank
+    else:
+        data['rank'] = fetch_rank+1
     try:
         create(db, 'users', data)
     except:

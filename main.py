@@ -34,4 +34,5 @@ app.add_middleware(
 @app.get("/")
 def home():
     return {"Let's": "Go"}
+    
 app.include_router(auth.router)
