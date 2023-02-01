@@ -5,11 +5,9 @@ from bson import ObjectId
 from auth import verify
 from utils import check_user_exists_using_email
 import os
-from dotenv import load_dotenv
 from datetime import datetime
 import json
 from firebase_admin import auth as admin_auth
-load_dotenv()
 MONGO_URI = os.environ.get('MONGO_URI')
 client = pymongo.MongoClient(MONGO_URI)
 db = client["BetaLabs-Portal"]
