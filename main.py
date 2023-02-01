@@ -35,6 +35,3 @@ app.include_router(leaderboard.router)
 app.include_router(dashboard.router)
 app.include_router(admin.router)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=os.getenv("PORT", default=5000), log_level="info")
