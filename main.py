@@ -5,6 +5,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from bson import ObjectId
 import auth
+import leaderboard
 from firebase_admin import auth as admin_auth
 
 import os
@@ -33,6 +34,6 @@ app.add_middleware(
 
 @app.get("/")
 def home():
-    return {"Let's": "Go"}
-    
+    return {"Let's": "Go"}    
 app.include_router(auth.router)
+app.include_router(leaderboard.router)

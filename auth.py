@@ -28,7 +28,6 @@ async def verify(authorization):
 
 @router.post('/auth/adduser')
 async def addUser(req: Request):
-
     if verify(req.headers["authorization"]):
         print("YES")
     else:
