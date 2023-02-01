@@ -8,8 +8,6 @@ import auth,dashboard,leaderboard,admin
 from firebase_admin import auth as admin_auth
 
 import os
-from dotenv import load_dotenv
-load_dotenv()
 MONGO_URI = os.environ.get('MONGO_URI')
 client = pymongo.MongoClient(MONGO_URI)
 db = client["BetaLabs-Portal"]

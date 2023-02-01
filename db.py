@@ -1,7 +1,5 @@
 import pymongo
 from bson.objectid import ObjectId
-from dotenv import load_dotenv
-load_dotenv()
 import os
 MONGO_URI = os.environ.get('MONGO_URI')
 client = pymongo.MongoClient(MONGO_URI)

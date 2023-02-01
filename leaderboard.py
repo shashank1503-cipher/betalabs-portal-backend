@@ -5,8 +5,6 @@ router = APIRouter()
 from auth import verify
 from utils import check_user_exists_using_email
 import os
-from dotenv import load_dotenv
-load_dotenv()
 from bson import ObjectId
 
 MONGO_URI = os.environ.get('MONGO_URI')
