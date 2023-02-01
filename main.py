@@ -4,7 +4,7 @@ import pymongo
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from bson import ObjectId
-import auth,dashboard,leaderboard
+import auth,dashboard,leaderboard,admin
 from firebase_admin import auth as admin_auth
 
 import os
@@ -33,3 +33,4 @@ def home():
 app.include_router(auth.router)
 app.include_router(leaderboard.router)
 app.include_router(dashboard.router)
+app.include_router(admin.router)

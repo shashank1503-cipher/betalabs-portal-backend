@@ -37,6 +37,7 @@ def get_overall_leaderboard(req:Request,q,page,per_page):
         user['_id'] = str(user.get("_id",None))
         result['data'].append(user)
     return result
+
 @router.get('/leaderboard/{event_id}')
 def get_leaderboard(req:Request,id,page,per_page):
     user = asyncio.run(verify(req.headers.get("Authorization")))
