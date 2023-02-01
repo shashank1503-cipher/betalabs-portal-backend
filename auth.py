@@ -18,8 +18,6 @@ async def verify(authorization):
     try:
         id_token = authorization.split(" ")[1]
         user = auth.verify_id_token(id_token)
-        
-        
         return user
     except Exception as e:
         print(e)
