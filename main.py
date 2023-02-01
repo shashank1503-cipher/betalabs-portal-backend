@@ -4,7 +4,7 @@ import pymongo
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from bson import ObjectId
-import auth
+import auth,dashboard
 from firebase_admin import auth as admin_auth
 
 import os
@@ -16,11 +16,7 @@ db = client["BetaLabs-Portal"]
 app = FastAPI()
 origins = [
     "http://localhost",
-    "http://localhost:3000",
-    "https://partners-in-crime.vercel.app",
-    "https://partners-in-crime-backend-production.up.railway.app/",
-    "https://partners-in-crime-shashank1503-cipher.koyeb.app/",
-    "https://partners-in-crime-backup.herokuapp.com/"
+    "http://localhost:3000"
 ]
 
 app.add_middleware(
@@ -36,3 +32,4 @@ def home():
     return {"Let's": "Go"}
     
 app.include_router(auth.router)
+app.include_router(dashboard.router)
