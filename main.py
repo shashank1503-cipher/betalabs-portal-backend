@@ -17,7 +17,8 @@ origins = [
     "http://localhost:3000"
     "https://betalabs-portal-backend-production.up.railway.app/",
     "https://betalabs-portal-backend-production.up.railway.app",
-    "https://betalabs-portal.vercel.app/"
+    "https://betalabs-portal.vercel.app/",
+    "https://betalabs-portal.vercel.app"
 ]
 
 app.add_middleware(
