@@ -28,7 +28,7 @@ async def create_event(req:Request):
     user_email = user.get("email", None)
     if not user_email:
         raise HTTPException(status_code=400, detail="User Email Not Found")
-    if user_email != "techclub@iiitkottayam.ac.in":
+    if user_email != "techclub@iiitkottayam.ac.in" and user_email != "ganesh21bcs104@iiitkottayam.ac.in" :
         raise HTTPException(status_code=401, detail="Unauthorized")
     data = await req.body()
     if data:
@@ -95,7 +95,7 @@ async def edit_event(req:Request,id:str):
     user_email = user.get("email", None)
     if not user_email:
         raise HTTPException(status_code=400, detail="User Email Not Found")
-    if user_email != "techclub@iiitkottayam.ac.in":
+    if user_email != "techclub@iiitkottayam.ac.in" and user_email != "ganesh21bcs104@iiitkottayam.ac.in" :
         raise HTTPException(status_code=401, detail="Unauthorized")
     data = await req.body()
     if data:
@@ -159,7 +159,7 @@ async def delete_event(req:Request,id:str):
     user_email = user.get("email", None)
     if not user_email:
         raise HTTPException(status_code=400, detail="User Email Not Found")
-    if user_email != "techclub@iiitkottayam.ac.in":
+    if user_email != "techclub@iiitkottayam.ac.in" and user_email != "ganesh21bcs104@iiitkottayam.ac.in" :
         raise HTTPException(status_code=401, detail="Unauthorized")
     try:
         db['events'].delete_one({"_id":ObjectId(id)})
@@ -182,7 +182,7 @@ async def attendance(req:Request,id:str):
     user_email = user.get("email", None)
     if not user_email:
         raise HTTPException(status_code=400, detail="User Email Not Found")
-    if user_email != "techclub@iiitkottayam.ac.in":
+    if user_email != "techclub@iiitkottayam.ac.in" and user_email != "ganesh21bcs104@iiitkottayam.ac.in" :
         raise HTTPException(status_code=401, detail="Unauthorized")
     data = await req.body()
     if data:
@@ -212,7 +212,7 @@ async def winner(req:Request,id:str):
     user_email = user.get("email", None)
     if not user_email:
         raise HTTPException(status_code=400, detail="User Email Not Found")
-    if user_email != "techclub@iiitkottayam.ac.in":
+    if user_email != "techclub@iiitkottayam.ac.in" and user_email != "ganesh21bcs104@iiitkottayam.ac.in" :
         raise HTTPException(status_code=401, detail="Unauthorized")
     data = await req.body()
     if data:
