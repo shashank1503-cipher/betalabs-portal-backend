@@ -14,7 +14,7 @@ db = client["BetaLabs-Portal"]
 app = FastAPI()
 origins = [
     "http://localhost",
-    "http://localhost:3000"
+    "http://localhost:3000",
     "https://betalabs-portal-backend-production.up.railway.app/",
     "https://betalabs-portal-backend-production.up.railway.app",
     "https://betalabs-portal.vercel.app/",
